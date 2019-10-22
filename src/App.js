@@ -12,6 +12,10 @@ class App extends Component {
     data: []
   }
 
+  updateData = (data) => {
+    this.setState({ data })
+  }
+
   renderChart() {
     if (this.state.data.length === 0) return "no data yet"
     else return <ChartWrapper data={this.state.data} />
@@ -32,7 +36,7 @@ class App extends Component {
         <Container>
           <Row>
             <Col md={6} xs={12}>{this.renderChart()}</Col>
-            <Col md={6} xs={12}><Table data={this.state.data} /></Col>
+            <Col md={6} xs={12}><Table data={this.state.data} updateData={this.updateData} /></Col>
           </Row>
         </Container>
       </div>
