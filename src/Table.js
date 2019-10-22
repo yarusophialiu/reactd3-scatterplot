@@ -31,10 +31,13 @@ export default class Table extends Component {
     renderRows() {
         return (
             this.props.data.map(student => {
+                const background = 
+                    (student.name === this.props.activeName) 
+                    ? "yellow" : "white"
                 return (
                     <Row
                         key={student.name}
-                        style={{ marginTop: "10px" }}
+                        style={{ marginTop: "10px", backgroundColor: background }}
                     >
                         <Col xs={3}>{student.name}</Col>
                         <Col xs={3}>{student.height}</Col>
