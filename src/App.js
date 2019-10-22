@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { json } from 'd3'
 import ChartWrapper from './ChartWrapper';
+import Table from './Table'
 
 class App extends Component {
   state = {
@@ -12,7 +13,7 @@ class App extends Component {
   }
 
   renderChart() {
-    if (this.state.data.length == 0) return "no data yet"
+    if (this.state.data.length === 0) return "no data yet"
     else return <ChartWrapper data={this.state.data} />
   }
 
@@ -31,7 +32,7 @@ class App extends Component {
         <Container>
           <Row>
             <Col md={6} xs={12}>{this.renderChart()}</Col>
-            <Col md={6} xs={12}></Col>
+            <Col md={6} xs={12}><Table data={this.state.data} /></Col>
           </Row>
         </Container>
       </div>
